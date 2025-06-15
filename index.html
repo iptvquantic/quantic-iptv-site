@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quantic IPTV</title>
+<style>
+  /* Reset básico */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #000;
+    color: #ddd;
+    line-height: 1.6;
+  }
+  a {
+    color: #00aaff;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  header {
+    background: #002244;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  header .logo {
+    max-height: 50px;
+  }
+  nav a {
+    margin-left: 20px;
+    font-weight: 600;
+    color: #00aaff;
+  }
+  nav a:hover {
+    color: #66ccff;
+  }
+  .banner {
+    background: linear-gradient(90deg, #003366 0%, #0055aa 100%);
+    text-align: center;
+    padding: 60px 20px;
+    color: #fff;
+  }
+  .banner img {
+    max-width: 200px;
+    margin-bottom: 20px;
+  }
+  .banner p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+  }
+  .btn-primary {
+    background: #00aaff;
+    color: #000;
+    padding: 15px 35px;
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  .btn-primary:hover {
+    background: #0088cc;
+    color: #fff;
+  }
+  section {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+  }
+  h3 {
+    color: #00aaff;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    text-align: center;
+  }
+  .plans {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .plan {
+    background: #111;
+    border: 2px solid #00aaff;
+    border-radius: 10px;
+    padding: 25px;
+    flex: 1 1 250px;
+    max-width: 300px;
+    color: #ddd;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  .plan:hover {
+    transform: scale(1.05);
+    border-color: #66ccff;
+  }
+  .plan h4 {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    color: #00aaff;
+  }
+  .plan .price {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #00ccff;
+  }
+  .plan ul {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .plan ul li {
+    margin-bottom: 10px;
+  }
+  .plan button {
+    background: #00aaff;
+    border: none;
+    padding: 12px 25px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #000;
+    transition: background 0.3s ease;
+  }
+  .plan button:hover {
+    background: #0088cc;
+    color: #fff;
+  }
+  .advantages {
+    max-width: 900px;
+    margin: auto;
+    color: #ddd;
+  }
+  .advantages ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+  }
+  .advantages li {
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #004466;
+  }
+  .advantages li::before {
+    content: "✓";
+    color: #00aaff;
+    font-weight: 700;
+    margin-right: 10px;
+  }
+  .testimonials {
+    max-width: 700px;
+    margin: 40px auto;
+    font-style: italic;
+    color: #ccc;
+  }
+  .testimonials blockquote {
+    margin-bottom: 25px;
+    border-left: 4px solid #00aaff;
+    padding-left: 15px;
+  }
+  footer {
+    background: #002244;
+    text-align: center;
+    padding: 15px 10px;
+    color: #00aaff;
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* Botão WhatsApp fixo */
+  #whatsapp-btn {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25d366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    z-index: 9999;
+  }
+  #whatsapp-btn:hover {
+    background: #128c4a;
+  }
+  #whatsapp-btn svg {
+    fill: white;
+    width: 30px;
+    height: 30px;
+  }
+
+  /* Responsivo */
+  @media(max-width: 768px) {
+    .plans {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="https://i.postimg.cc/c6NZsS8v/logo.png" alt="Quantic IPTV Logo" class="logo" />
+  <nav>
+    <a href="#planos">Planos</a>
+    <a href="#vantagens">Vantagens</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="banner" id="home">
+  <img src="https://i.postimg.cc/c6NZsS8v/logo.png" alt="Quantic IPTV Logo Banner" />
+  <p>Explore a melhor qualidade e variedade de canais com nosso teste gratuito.</p>
+  <button class="btn-primary" onclick="location.href='#contato'">Quero Testar Agora</button>
+</section>
+
+<section id="planos">
+  <h3>Planos Quantic IPTV</h3>
+  <div class="plans">
+    <div class="plan">
+      <h4>Básico</h4>
+      <div class="price">R$ 29,90 / mês</div>
+      <ul>
+        <li>+ 1500 canais</li>
+        <li>Suporte 24/7</li>
+        <li>Acesso em 2 dispositivos</li>
+      </ul>
+      <button onclick="window.open('https://wa.me/5522998948145?text=Olá%20Quero%20assinar%20o%20Plano%20Básico')">Assinar</button>
+    </div>
+    <div class="plan">
+      <h4>Premium</h4>
+      <div class="price">R$ 49,90 / mês</div>
+      <ul>
+        <li>+ 3000 canais</li>
+        <li>Suporte 24/7</li>
+        <li>Acesso em 4 dispositivos</li>
+      </ul>
+      <button onclick="window.open('https://wa.me/5522998948145?text=Olá%20Quero%20assinar%20o%20Plano%20Premium')">Assinar</button>
+    </div>
+    <div class="plan">
+      <h4>Ultra</h4>
+      <div class="price">R$ 69,90 / mês</div>
+      <ul>
+        <li>+ 5000 canais</li>
+        <li>Suporte 24/7</li>
+        <li>Acesso em 8 dispositivos</li>
+      </ul>
+      <button onclick="window.open('https://wa.me/5522998948145?text=Olá%20Quero%20assinar%20o%20Plano%20Ultra')">Assinar</button>
+    </div>
+  </div>
+</section>
+
+<section id="vantagens" class="advantages">
+  <h3>Por que escolher Quantic IPTV?</h3>
+  <ul>
+    <li>Alta qualidade de imagem HD e Full HD</li>
+    <li>Estabilidade e baixa latência</li>
+    <li>Atualização constante dos canais</li>
+    <li>Suporte técnico rápido e eficiente</li>
+    <li>Acesso simultâneo em vários dispositivos</li>
+  </ul>
+</section>
+
+<section id="depoimentos" class="testimonials">
+  <h3>Depoimentos</h3>
+  <blockquote>"Melhor IPTV que já usei, imagem excelente e sem travamentos!" - João S.</blockquote>
+  <blockquote>"Suporte rápido e atendimento top, recomendo demais." - Maria F.</blockquote>
+  <blockquote>"Planos acessíveis e muita variedade de canais, vale a pena." - Carlos M.</blockquote>
+</section>
+
+<section id="contato" style="text-align:center; padding-bottom: 60px;">
+  <h3>Entre em contato pelo WhatsApp</h3>
+  <p>Estamos prontos para tirar suas dúvidas e ativar seu plano.</p>
+  <a href="https://wa.me/5522998948145" target="_blank" class="btn-primary" style="font-size: 1.2rem; padding: 15px 40px;">Falar no WhatsApp</a>
+</section>
+
+<footer>
+  &copy; 2025 Quantic IPTV. Todos os direitos reservados.
+</footer>
+
+<!-- Botão WhatsApp fixo -->
+<a href="https://wa.me/5522998948145" target="_blank" id="whatsapp-btn" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.52 3.48a11.875 11.875 0 00-16.79 0 11.9 11.9 0 00-3.5 8.43c0 2.08.53 4.14 1.55 5.97L2 22l4.24-1.4a11.914 11.914 0 005.97 1.54c3.18 0 6.19-1.24 8.43-3.49a11.875 11.875 0 000-16.83zm-8.03 17.04c-1.91 0-3.77-.54-5.36-1.54l-.38-.23-2.52.83.85-2.45-.25-.39a8.872 8.872 0 01-1.4-4.98c0-4.9 4-8.9 8.9-8.9 2.37 0 4.6.92 6.27 2.6 1.67 1.67 2.6 3.9 2.6 6.27 0 4.9-4 8.9-8.91 8.9zm4.97-6.27c-.27-.14-1.59-.79-1.83-.88-.24-.09-.42-.14-.6.14-.18.27-.7.88-.85 1.06-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.34-.8-.72-1.34-1.61-1.5-1.87-.16-.27-.02-.42.12-.56.12-.12.27-.31.4-.46.13-.15.18-.27.27-.45.09-.18.04-.34-.02-.48-.07-.14-.6-1.44-.82-1.98-.22-.52-.44-.45-.6-.46-.16 0-.34-.01-.52-.01-.18 0-.48.07-.73.34-.24.27-.91.88-.91 2.15 0 1.27.94 2.5 1.07 2.67.13.18 1.85 2.84 4.48 3.98.63.27 1.12.43 1.5.55.63.2 1.21.17 1.67.1.51-.08 1.59-.65 1.81-1.28.22-.63.22-1.18.15-1.28-.07-.1-.24-.14-.5-.27z"/></svg>
+</a>
+
+</body>
+</html>
